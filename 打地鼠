@@ -1,0 +1,50 @@
+package DIO;
+
+        import javax.swing.*;
+        import java.awt.event.MouseAdapter;
+        import java.awt.event.MouseEvent;
+
+public class LiSA {
+    private JPanel Jacke=new JPanel();
+    private JLabel label_img=new JLabel();
+    private JLabel label_back=new JLabel();
+    private JLabel label_score=new JLabel();
+    int i=0;
+
+    public LiSA() {
+        label_img.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                label_img.setBounds((int)(Math.random()*10%10*30),(int)(Math.random()*10%10*30),80,75);
+                i++;
+                label_score.setText("得分:"+String.valueOf(i));
+            }
+        });
+    }
+    void go(){
+        java.net.URL imgURL1 =  LiSA.class.getResource("F4.gif");
+        label_img.setIcon(new ImageIcon(imgURL1));
+        label_img.setBounds(0,0,85,75);
+        java.net.URL imgURL2 =  LiSA.class.getResource("timg.jpg");
+        label_back.setIcon(new ImageIcon(imgURL2));
+        label_back.setBounds(0,0,1024,720);
+        label_score.setText("得分：0");
+        label_score.setBounds(0,0,50,50);
+        Jacke.add(label_img);
+        Jacke.add(label_score);
+        Jacke.add(label_back);
+        Jacke.setLayout(null);
+
+        JFrame frame = new JFrame("LiSA");
+        frame.setContentPane(Jacke);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(100,100,1024,720);
+        //frame.pack();
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new LiSA().go();
+    }
+}
