@@ -15,10 +15,8 @@ public class App14 {
 				   {88,66,92,102,151,999}
 				   
 		    };
-		   
-
-		 
-		 Find find = new Find();
+		  	 //
+		    Find find = new Find();
 		    find.zore(array);
 		    find.left(array);
 		    find.right(array);
